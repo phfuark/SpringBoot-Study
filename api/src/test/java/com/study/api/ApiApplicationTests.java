@@ -1,10 +1,10 @@
-package com.phfuark.first_spring_app;
+package com.study.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FirstSpringAppApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {
