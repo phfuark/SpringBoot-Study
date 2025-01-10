@@ -1,5 +1,11 @@
-package .com.study.api.controller;
+package com.study.api.controller;
 
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.study.api.models.Person;
 
@@ -16,9 +22,9 @@ public class Controller {
         return "Bem vindo(a)";
     }
 
-    @GetMapping("BemVinda/${nome}")
+    @GetMapping("BemVinda/{nome}")
     public String BemVinda(@PathVariable String nome){
-        return "Bem vindo(a)" + nome;
+        return "Bem vindo(a) " + nome;
     }
 
     @PostMapping("/person")
