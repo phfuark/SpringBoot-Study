@@ -1,6 +1,8 @@
 package com.study.api.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,16 @@ public class Controller {
     @PostMapping("/api")
     public Person cadastar(@RequestBody Person obj){
         return action.save(obj);
+    }
+
+    @GetMapping("/api")
+    public List<Person> select(){
+        return action.findAll();
+    }
+
+    @GetMapping("/api/{code}")
+    public Person selectByCode(@PathVariable int code){
+        return action.findByCode(code   );
     }
 
     @GetMapping("")
