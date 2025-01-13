@@ -1,6 +1,7 @@
 package com.study.api.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,9 +9,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.study.api.models.Person;
+import com.study.api.repository.Repository;
 
 @RestController
 public class Controller {
+
+    @Autowired
+    private Repository action;
+    
+    @PostMapping("/api")
+    public Person cadastar(@RequestBody Person obj){
+        return action.save(obj);
+    }
 
     @GetMapping("")
     public String HelloWord(){
