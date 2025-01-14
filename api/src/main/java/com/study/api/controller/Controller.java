@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.study.api.models.Person;
 import com.study.api.repository.Repository;
 
+
 @RestController
 public class Controller {
 
@@ -51,6 +52,21 @@ public class Controller {
     @GetMapping("/api/counter")
     public long counter(){
         return action.count();
+    }
+
+    @GetMapping("/api/sortAge")
+    public List<Person> sortAge(){
+        return action.findByOrderByAge();
+    } 
+
+    @GetMapping("/api/Paulos")
+    public List<Person> pauloSortAge(){
+        return action.findByNameOrderByAge("Paulo");
+    }
+
+    @GetMapping("/api/filter")
+    public List<Person> filter(){
+        return action.findByNameContaining("Paulo");
     }
 
     @GetMapping("")
