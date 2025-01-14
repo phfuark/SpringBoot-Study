@@ -48,6 +48,11 @@ public class Controller {
         action.delete(obj);
     }
 
+    @GetMapping("/api/counter")
+    public long counter(){
+        return action.count();
+    }
+
     @GetMapping("")
     public String HelloWord(){
         return "Hello Word";
