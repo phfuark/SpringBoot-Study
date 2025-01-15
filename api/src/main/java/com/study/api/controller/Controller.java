@@ -79,7 +79,16 @@ public class Controller {
     public List<Person> endstWith(){
         return action.findByNameEndsWith("A");
     }
+
+    @GetMapping("/api/amountAges")
+    public int amountAges(){
+        return action.amountAges();
+    }
     
+    @GetMapping("/api/ageHigh")
+    public List<Person> ageHighEquals(){
+        return action.ageHigEquals(20);
+    }
 
     @GetMapping("")
     public String HelloWord(){
