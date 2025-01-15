@@ -16,6 +16,7 @@ import com.study.api.models.Person;
 import com.study.api.repository.Repository;
 
 
+
 @RestController
 public class Controller {
 
@@ -68,6 +69,17 @@ public class Controller {
     public List<Person> filter(){
         return action.findByNameContaining("Paulo");
     }
+
+    @GetMapping("/api/StartP")
+    public List<Person> startWith(){
+        return action.findByNameStartsWith("P");
+    }
+    
+    @GetMapping("/api/EndsA")
+    public List<Person> endstWith(){
+        return action.findByNameEndsWith("A");
+    }
+    
 
     @GetMapping("")
     public String HelloWord(){
