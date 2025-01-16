@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.study.api.models.Person;
 import com.study.api.repository.Repository;
+import com.study.api.service.PersonService;
 
 
 
@@ -24,13 +25,16 @@ public class Controller {
 
     @Autowired
     private Repository action;
+
+    @Autowired
+    private PersonService service;
     
     @PostMapping("/api")
-    public Person cadastar(@RequestBody Person obj){
-        return action.save(obj);
+    public ResponseEntity<?> cadastar(@RequestBody Person objectPerson){
+        return service.register(objectPerson);
     }
 
-    @GetMapping("/api")
+        @GetMapping("/api")
     public List<Person> select(){
         return action.findAll();
     }
@@ -45,12 +49,12 @@ public class Controller {
         return action.save(obj);
     }
 
-    @DeleteMapping("/api")
+    @DeleteMapping("/api/{code}")
     public void remove(@PathVariable int code){
         Person obj = selectByCode(code);
-
         action.delete(obj);
     }
+
 
     @GetMapping("/api/counter")
     public long counter(){
