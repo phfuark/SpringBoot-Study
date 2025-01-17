@@ -6,11 +6,13 @@ import jakarta.persistence.GeneratedValue; // Define como o valor do identificad
 import jakarta.persistence.GenerationType; // Estratégias para geração de identificadores.
 import jakarta.persistence.Id; // Marca um campo como a chave primária da entidade.
 import jakarta.persistence.Table; // Permite configurar o nome da tabela no banco de dados.
+import lombok.Data;
 
 // Marca a classe como uma entidade JPA (será mapeada para uma tabela no banco de dados)
 @Entity
 // Especifica que a tabela correspondente no banco de dados terá o nome "Persons"
 @Table(name = "Persons")
+@Data
 public class Person {
 
     @Id
@@ -21,30 +23,4 @@ public class Person {
     private String name;
     private int age;
 
-
-
-    // Métodos getters e setters para permitir acesso e modificação dos atributos
-    public int getAge() {
-        return age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
 }

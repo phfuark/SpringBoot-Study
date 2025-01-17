@@ -2,16 +2,14 @@ package com.study.api.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.study.api.models.Person;
 
-public interface Repository extends CrudRepository<Person, Integer>{
+public interface Repository extends JpaRepository<Person, Integer> {
 
-    @SuppressWarnings("null")
-    @Override
-    List<Person> findAll();
 
     Person findByCode(int code);
 

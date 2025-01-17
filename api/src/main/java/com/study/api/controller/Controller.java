@@ -3,6 +3,10 @@ package com.study.api.controller;
 
 //import java.util.List;
 
+import com.study.api.models.Client;
+import com.study.api.models.Person;
+import com.study.api.service.PersonService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,13 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.study.api.models.Person;
-//import com.study.api.repository.Repository;
-import com.study.api.service.PersonService;
-
-
-
 @RestController
 public class Controller {
 
@@ -28,13 +25,13 @@ public class Controller {
 
     @Autowired
     private PersonService service;
-    
+
     @PostMapping("/api")
     public ResponseEntity<?> cadastar(@RequestBody Person objectPerson){
         return service.register(objectPerson);
     }
 
-        @GetMapping("/api")
+    @GetMapping("/api")
     public ResponseEntity<?> select(){
         return service.select();
     }
@@ -53,6 +50,9 @@ public class Controller {
     public ResponseEntity<?> remove(@PathVariable int code){
         return service.remove(code);
     }
+
+    @PostMapping("/client")
+    public void client(@Valid @RequestBody Client obj){}
 
 
     @GetMapping("")
